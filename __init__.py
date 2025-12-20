@@ -19,7 +19,6 @@
 
 import re
 
-from picard.config import get_config
 from picard.plugin3.api import (
     OptionsPage,
     PluginApi,
@@ -200,9 +199,7 @@ def enable(api: PluginApi):
 
 
 def migrate_settings(api: PluginApi):
-    cfg = get_config()
-
-    if cfg.setting.raw_value("performer_tag_replacement_pairs") is None or api.plugin_config["performer_tag_replacement_pairs"]:
+    if api.global_config.setting.raw_value("performer_tag_replacement_pairs") is None or api.plugin_config["performer_tag_replacement_pairs"]:
         return
 
     api.logger.info("Migrating settings from 2.x version.")
@@ -213,8 +210,8 @@ def migrate_settings(api: PluginApi):
     ]
 
     for key, qtype in mapping:
-        if cfg.setting.raw_value(key) is None:
+        if api.global_config.setting.raw_value(key) is None:
             api.logger.debug("No old setting for key: '%s'", key,)
             continue
-        api.plugin_config[key] = cfg.setting.raw_value(key, qtype=qtype)
-        cfg.setting.remove(key)
+        api.plugin_config[key] = api.global_config.setting.raw_value(key, qtype=qtype)
+        api.global_config.setting.remove(key)
