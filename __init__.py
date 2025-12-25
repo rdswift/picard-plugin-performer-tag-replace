@@ -124,51 +124,14 @@ class PerformerTagReplace:
 class PerformerTagReplaceOptionsPage(OptionsPage):
 
     TITLE = t_("ui.title", "Performer Tag Replacement")
+    HELP_URL = USER_GUIDE_URL
 
     def __init__(self, parent=None):
         super(PerformerTagReplaceOptionsPage, self).__init__(parent)
         self.ui = Ui_PerformerTagReplaceOptionsPage()
         self.ui.setupUi(self)
-        self._add_translations()
-
-    def _add_translations(self):
-        self.ui.format_description.setText(
-            "<html><head/><body><p>"
-            + self.api.tr(
-                "ui.format_description.p1",
-                (
-                    "These are the original / replacement pairs used to modify the keys for the performer tags. "
-                    "Each pair must be entered on a separate line in the form:"
-                )
-            )
-            + "</p><p><span style=\"font-weight:600;\">"
-            + self.api.tr("ui.format_description.p2", "original character string=replacement character string")
-            + "</span></p><p>"
-            + self.api.tr(
-                "ui.format_description.p3",
-                (
-                    "Blank lines and lines beginning with an equals sign (=) will be ignored. "
-                    "Replacements will be made in the order they are found in the list. "
-                    "An example for removing \"family\" from instrument names would be done using the following two lines:"
-                )
-            )
-            + "</p>"
-            + "<pre style=\"margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"
-            + "<span style=\"font-family:'Courier New'; font-size:10pt; font-weight:600;\">s family=ses<br/> family=s</span></pre>"
-            + "</p><p>"
-            + self.api.tr("ui.format_description.p4", "Note that the second line begins with a single space.")
-            + "</p><p>"
-            + self.api.tr("ui.format_description.p5", "Please see the {url}User Guide{end_url} for additional information.").format(
-                url="<a href=\"" + USER_GUIDE_URL + "\"><span style=\"text-decoration: underline; color:#0000ff;\">",
-                end_url="</span></a>",
-            )
-            + "</p></body></html>"
-        )
 
     def load(self):
-        # Enable external link
-        self.ui.format_description.setOpenExternalLinks(True)
-
         # Replacement settings
         self.ui.performer_tag_replacement_pairs.setPlainText(self.api.plugin_config["performer_tag_replacement_pairs"])
         self.ui.performer_tag_replace_performers.setChecked(self.api.plugin_config["performer_tag_replace_performers"])
@@ -183,8 +146,8 @@ def enable(api: PluginApi):
     """Called when plugin is enabled."""
 
     # Register configuration options
-    api.plugin_config.register_option("performer_tag_replacement_pairs", ""),
-    api.plugin_config.register_option("performer_tag_replace_performers", False),
+    api.plugin_config.register_option("performer_tag_replacement_pairs", "")
+    api.plugin_config.register_option("performer_tag_replace_performers", False)
 
     # Migrate settings from 2.x version if available
     migrate_settings(api)

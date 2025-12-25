@@ -1,9 +1,7 @@
 uuid = "e561da4b-5b0c-4bc0-a8f6-d5384e445669"
 name = "Performer Tag Replace"
 authors = ["Bob Swift"]
-description = """
-This plugin provides the ability to replace text in performer tags.
-"""
+description = "This plugin provides the ability to replace text in performer tags."
 api = ['3.0']
 license = "GPL-2.0 or later"
 license_url = "https://www.gnu.org/licenses/gpl-2.0.html"
