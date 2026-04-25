@@ -11,3 +11,4 @@ in the option settings page.
 """
 categories = ["metadata"]
 homepage = "https://picard-plugins-user-guides.readthedocs.io/en/latest/performer_tag_replace/user_guide.html"
+report_bugs_to = "https://github.com/rdswift/picard-plugin-performer-tag-replace/issues"
