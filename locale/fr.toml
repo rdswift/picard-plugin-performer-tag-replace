@@ -1,1 +1,11 @@
+"manifest.description" = "Ce plugin permet de remplacer du texte dans les balises d'interprète."
+"manifest.long_description" = "Ce plugin permet de remplacer du texte dans les balises d'interprète. Les paires « texte d'origine/texte de remplacement » utilisées peuvent être personnalisées dans la page des paramètres."
+"manifest.name" = "Remplacer la balise « Performer »"
+"qt.PerformerTagReplaceOptionsPage.page.cb.replace_performers" = "Appliquer les remplacements aux interprètes ainsi qu'aux instruments et aux voix"
+"qt.PerformerTagReplaceOptionsPage.page.text" = "Voici les paires « original / remplacement » utilisées pour modifier les clés des balises d'interprète. Chaque paire doit être saisie sur une ligne distincte sous la forme suivante :\n\n**chaîne de caractères originale=chaîne de caractères de remplacement**\n\nLes lignes vides et les lignes commençant par un signe égal (=) seront ignorées. Les remplacements seront effectués dans l'ordre où ils apparaissent dans la liste. Pour supprimer « family » des noms d'instruments, par exemple, il faudrait utiliser les deux lignes suivantes :\n\n**s family=ses**<br />&nbsp;**family=s**\n\nNotez que la deuxième ligne commence par un espace."
+"qt.PerformerTagReplaceOptionsPage.page.title" = "Remplacement des balises d'artiste"
+"qt.PerformerTagReplaceOptionsPage.section.replacement.placeholder" = "Saisissez les paires de remplacement (une par ligne)"
+"qt.PerformerTagReplaceOptionsPage.section.replacement.title" = "Paires de rechange"
+"qt.PerformerTagReplaceOptionsPage.window.title" = "Paramètres de remplacement des balises d'artiste"
+"ui.title" = "Remplacement des balises d'artiste"
 
