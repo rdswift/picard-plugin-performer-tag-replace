@@ -19,6 +19,7 @@
 
 import re
 
+from picard.debug_opts import DebugOpt
 from picard.plugin3.api import (
     OptionsPage,
     PluginApi,
@@ -28,8 +29,6 @@ from picard.plugin3.api import (
 from .ui_options_performer_tag_replace import \
     Ui_PerformerTagReplaceOptionsPage
 
-
-DEV_TESTING = False
 
 pairs_split = re.compile(r"\r\n|\n\r|\n").split
 
@@ -86,8 +85,7 @@ class PerformerTagReplace:
             original, replacement = pair.split('=', 1)
             if original:
                 replacements.append((original, replacement))
-                if DEV_TESTING:
-                    self.api.logger.debug("Add pair: '%s' = '%s'", original, replacement,)
+                self.api.logger.debug_if(DebugOpt.PLUGIN_DEVELOPMENT, "Add pair: '%s' = '%s'", original, replacement,)
         if replacements:
             self._update_track_metadata(track_metadata, replacements)
             for key, values in list(metadata.rawitems()):
@@ -99,9 +97,8 @@ class PerformerTagReplace:
                 old_key = subkey
                 for (original, replacement) in replacements:
                     subkey = subkey.replace(original, replacement)
-                    if DEV_TESTING:
-                        self.api.logger.debug("Applying pair: '%s' = '%s'", original, replacement,)
-                        self.api.logger.debug("Updated key: '%s'", subkey,)
+                    self.api.logger.debug_if(DebugOpt.PLUGIN_DEVELOPMENT, "Applying pair: '%s' = '%s'", original, replacement,)
+                    self.api.logger.debug_if(DebugOpt.PLUGIN_DEVELOPMENT, "Updated key: '%s'", subkey,)
                 if subkey != old_key:
                     self.api.logger.debug("Original key: '%s'  ==>  Replacement key: '%s'", old_key, subkey,)
                 del metadata[key]
@@ -111,9 +108,8 @@ class PerformerTagReplace:
                     if self.api.plugin_config["performer_tag_replace_performers"]:
                         for (original, replacement) in replacements:
                             value = value.replace(original, replacement)
-                            if DEV_TESTING:
-                                self.api.logger.debug("Applying pair: '%s' = '%s'", original, replacement,)
-                                self.api.logger.debug("Updated value: '%s'", value,)
+                            self.api.logger.debug_if(DebugOpt.PLUGIN_DEVELOPMENT, "Applying pair: '%s' = '%s'", original, replacement,)
+                            self.api.logger.debug_if(DebugOpt.PLUGIN_DEVELOPMENT, "Updated value: '%s'", value,)
                         if value != old_value:
                             self.api.logger.debug("Original value: '%s'  ==>  Replacement value: '%s'", old_value, value,)
                     metadata.add_unique(newkey, value)
