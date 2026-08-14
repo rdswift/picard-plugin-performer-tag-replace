@@ -5,3 +5,7 @@ This plugin provides the ability to replace text in performer tags. Once install
 This plugin reads the track metadata provided to Picard, extracts the list of associated instrument and vocal performers, and updates the performer keys based on the original/replacement pairs specified in the settings panel.
 
 Please see the [User Guide](https://picard-plugins-user-guides.readthedocs.io/en/latest/performer_tag_replace/user_guide.html) for more information, including usage examples.
+
+## Contributing
+
+Please see the [Contribution Guidelines for MusicBrainz Picard Plugins](https://github.com/metabrainz/picard-plugins-registry/blob/main/PLUGIN_CONTRIBUTING.md) on how to help with development of this plugin.
