@@ -1,1 +1,11 @@
+"manifest.description" = "此插件提供替换表演者标签中文字的能力。"
+"manifest.long_description" = "此插件提供替换表演者标签中文字的能力。原始/替换对可以在选项设置页面中自定义。"
+"manifest.name" = "表演者标签替换"
+"qt.PerformerTagReplaceOptionsPage.page.cb.replace_performers" = "将替换应用于表演者以及乐器和声乐"
+"qt.PerformerTagReplaceOptionsPage.page.text" = "这些是用于修改表演者标签键的原始 / 替换对。每对必须以单独的一行输入，形式为：\n\n**原始字符串=替换字符串**\n\n空行和以等号（=）开头的行将被忽略。替换将按照列表中的顺序进行。例如，要从乐器名称中删除 \"family\"，可以使用以下两行：\n\n**s family=ses**<br />&nbsp;**family=s**\n\n请注意，第二行以单个空格开头。"
+"qt.PerformerTagReplaceOptionsPage.page.title" = "表演者标签替换"
+"qt.PerformerTagReplaceOptionsPage.section.replacement.placeholder" = "输入替换对（每行一个）"
+"qt.PerformerTagReplaceOptionsPage.section.replacement.title" = "替换对"
+"qt.PerformerTagReplaceOptionsPage.window.title" = "表演者标签替换设置"
+"ui.title" = "表演者标签替换"
 
