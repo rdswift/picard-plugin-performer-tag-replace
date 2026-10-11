@@ -12,3 +12,15 @@ in the option settings page.
 categories = ["metadata"]
 homepage = "https://picard-plugins-user-guides.readthedocs.io/en/latest/performer_tag_replace/user_guide.html"
 report_bugs_to = "https://github.com/rdswift/picard-plugin-performer-tag-replace/issues"
+
+[name_i18n]
+fr = "Remplacer la balise « Performer »"
+zh_CN = "表演者标签替换"
+
+[description_i18n]
+fr = "Ce plugin permet de remplacer du texte dans les balises d'interprète."
+zh_CN = "此插件提供替换表演者标签中文字的能力。"
+
+[long_description_i18n]
+fr = "Ce plugin permet de remplacer du texte dans les balises d'interprète. Les paires « texte d'origine/texte de remplacement » utilisées peuvent être personnalisées dans la page des paramètres."
+zh_CN = "此插件提供替换表演者标签中文字的能力。原始/替换对可以在选项设置页面中自定义。"
